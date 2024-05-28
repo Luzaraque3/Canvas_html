@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bandera de Noruega</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        canvas {
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="norwayFlag" width="220" height="160"></canvas>
+    <script>
+        const canvas = document.getElementById('norwayFlag');
+        const ctx = canvas.getContext('2d');
+
+        // Colores de la bandera
+        const red = '#BA0C2F';
+        const white = '#FFFFFF';
+        const blue = '#00205B';
+
+        // Dimensiones de cada rectángulo
+        const rectSize = 10;
+
+        // Función para dibujar un rectángulo en la cuadrícula
+        function drawRect(x, y, color) {
+            ctx.fillStyle = color;
+            ctx.fillRect(x * rectSize, y * rectSize, rectSize, rectSize);
+        }
+
+        // Dibujar fondo rojo
+        for (let y = 0; y < 16; y++) {
+            for (let x = 0; x < 22; x++) {
+                drawRect(x, y, red);
+            }
+        }
+
+        // Dibujar la cruz blanca
+        for (let y = 3; y < 7; y++) {
+            for (let x = 0; x < 22; x++) {
+                drawRect(x, y, white);
+            }
+        }
+        for (let y = 0; y < 16; y++) {
+            for (let x = 5; x < 9; x++) {
+                drawRect(x, y, white);
+            }
+        }
+
+        // Dibujar la cruz azul
+        for (let y = 4; y < 6; y++) {
+            for (let x = 0; x < 22; x++) {
+                drawRect(x, y, blue);
+            }
+        }
+        for (let y = 0; y < 16; y++) {
+            for (let x = 6; x < 8; x++) {
+                drawRect(x, y, blue);
+            }
+        }
+    </script>
+</body>
+</html>
